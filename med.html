@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+        }
+        header {
+            background: linear-gradient(135deg, #00796b, #004d40); /* Stylish gradient */
+            color: white;
+            padding: 40px 20px; /* Increased padding for a larger header */
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        header h2 {
+            margin: 0;
+            font-size: 2.5em; /* Larger font size */
+            text-transform: uppercase; /* Uppercase for a bold look */
+            letter-spacing: 2px; /* Spacing between letters */
+        }
+        .details {
+            background-color: #ffffff; /* Set the background color for details section */
+            padding: 20px; /* Add padding for better spacing */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+            margin-top: 20px; /* Space above details */
+        }
+        footer {
+            background-color: #00796b;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            border: 3px solid #00796b;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.25);
+        }
+        .details h3 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            color: #00796b;
+            border-bottom: 2px solid #00796b;
+            padding-bottom: 5px;
+        }
+        .details p {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+        .medicine-name { color: #3f51b5; }
+        .composition { color: #f44336; }
+        .uses { color: #ff9800; }
+        .side-effects { color: #4caf50; }
+        .manufacturer { color: #2196f3; }
+        .excellent-review { color: #8bc34a; }
+        .average-review { color: #ffc107; }
+        .poor-review { color: #f44336; }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+        .back-btn:hover {
+            background-color: #004d40;
+        }
+        .icon {
+            margin-right: 8px;
+        }
+        /* Custom icon colors */
+        .medicine-icon { color: #ff5722; }
+        .composition-icon { color: #f44336; }
+        .uses-icon { color: #ff9800; }
+        .side-effects-icon { color: #4caf50; }
+        .manufacturer-icon { color: #2196f3; }
+        .excellent-review-icon { color: #8bc34a; }
+        .average-review-icon { color: #ffc107; }
+        .poor-review-icon { color: #f44336; }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Medicine Details</h2>
+    </header>
+
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/' + image_path.split('/')[-1]) }}" alt="Medicine Image">
+        
+        <div class="details">
+            <h3><i class="fas fa-info-circle icon"></i>Medicine Details:</h3>
+            <p><strong class="medicine-name"><i class="fas fa-capsules medicine-icon"></i>Medicine Name:</strong> {{ image_details["Medicine Name"] }}</p>
+            <p><strong class="composition"><i class="fas fa-flask composition-icon"></i>Composition:</strong> {{ image_details["Composition"] }}</p>
+            <p><strong class="uses"><i class="fas fa-pills uses-icon"></i>Uses:</strong> {{ image_details["Uses"] }}</p>
+            <p><strong class="side-effects"><i class="fas fa-user-md side-effects-icon"></i>Side Effects:</strong> {{ image_details["Side_effects"] }}</p>
+            <p><strong class="manufacturer"><i class="fas fa-industry manufacturer-icon"></i>Manufacturer:</strong> {{ image_details["Manufacturer"] }}</p>
+            <p><strong class="excellent-review"><i class="fas fa-star excellent-review-icon"></i>Excellent Review %:</strong> {{ image_details["Excellent Review %"] }}</p>
+            <p><strong class="average-review"><i class="fas fa-star-half-alt average-review-icon"></i>Average Review %:</strong> {{ image_details["Average Review %"] }}</p>
+            <p><strong class="poor-review"><i class="fas fa-star poor-review-icon"></i>Poor Review %:</strong> {{ image_details["Poor Review %"] }}</p>
+        </div>
+        <br>
+        <a class="back-btn" href="/">Back to Home</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Medicine Details. All rights reserved.</p>
+    </footer>
+</body>
+</html>
